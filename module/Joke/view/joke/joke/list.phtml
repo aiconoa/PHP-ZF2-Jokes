@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>title</td>
+            <td>category</td>
+            <td>author</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($jokes as $joke): ?>
+        <tr>
+            <td>
+                <?php $url = $this->url('joke',array('id' => $joke->getId(), 'slug' => $joke->getTitle())); ?>
+                <a href=" <?php echo $url ?>"><?php echo $joke->getTitle() ?></a>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
