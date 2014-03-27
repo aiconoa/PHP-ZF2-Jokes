@@ -82,10 +82,17 @@ Elle est émerveillée par une robe et le fait comprendre à son mari ! Son mari
         return null;
     }
 
-    public function createJoke(Joke $joke)
+    public function createOrUpdateJoke(Joke $joke)
     {
         $logger = $this->getServiceLocator()->get('Log\App');
-        $logger->log(Logger::INFO, "Added a new Joke " . $joke);
+        $logger->log(Logger::INFO, "Created or Updated a Joke " . $joke);
     }
+
+    public function deleteJoke($id)
+    {
+        $logger = $this->getServiceLocator()->get('Log\App');
+        $logger->log(Logger::INFO, "Deleted a Joke " . $id);
+    }
+
 
 }

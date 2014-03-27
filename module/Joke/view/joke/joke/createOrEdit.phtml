@@ -1,0 +1,64 @@
+<h1><?php echo $this->translate($this->viewTitle) ?></h1>
+<?php
+$form = $this->form;
+$form->prepare();
+// Set the method attribute for the form
+$form->setAttribute('method', 'post');
+// Assuming the "addJoke" route exists...
+$form->setAttribute('action', $this->url($this->createOrEditFormUrl, array("id" => $form->getObject()->getId())));
+$form->setAttribute('class', 'form-horizontal');
+
+$this->formElementErrors()
+    ->setMessageOpenFormat('<p class="bg-danger help-block">')
+    ->setMessageSeparatorString('</p><p class="bg-danger help-block">')
+    ->setMessageCloseString('</p>');
+
+//opening form tag
+echo $this->form()->openTag($form);
+
+// TITLE -----------------------
+$title = $form->get('title');
+$title->setAttribute('class','form-control');
+$title->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+
+if($this->isPostBack) {
+    echo '<div class="form-group'. ($title->getMessages() ?  ' has-error': ' has-success').'">';
+} else {
+    echo '<div class="form-group">';
+}
+
+ echo $this->formLabel($title);
+ echo '<div class="col-sm-10">';
+ echo $this->formElement($title);
+ echo $this->formElementErrors($title);
+ echo '</div></div>';
+
+// TEXT -----------------------
+$text = $form->get('text');
+$text->setAttribute('class','form-control');
+$text->setAttribute('rows','10');
+$text->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+
+if($this->isPostBack) {
+    echo '<div class="form-group'. ($text->getMessages() ?  ' has-error': ' has-success').'">';
+} else {
+    echo '<div class="form-group">';
+}
+
+echo $this->formLabel($text);
+echo '<div class="col-sm-10">';
+echo $this->formElement($text);
+echo $this->formElementErrors($text);
+echo '</div></div>';
+?>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php
+                $submit = $form->get('submit');
+                $submit->setValue('Save');
+                echo $this->formElement($submit);
+            ?>
+        </div>
+    </div>
+<?php echo $this->form()->closeTag($form); ?>

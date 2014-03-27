@@ -4,7 +4,8 @@
 <table class="table">
     <thead>
         <tr>
-            <th>title</th>
+            <th>Title</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +14,10 @@
             <td>
                 <?php $url = $this->url('joke',array('id' => $joke->getId(), 'slug' => $joke->getTitle())); ?>
                 <a href=" <?php echo $url ?>"><?php echo $joke->getTitle() ?></a>
+            </td>
+            <td>
+                <a class="btn btn-default" href="<?php echo $this->url('jokes/edit', array("id"=> $joke->getId())); ?>" role="button"><?php echo $this->translate('Edit') ?></a>
+                <a class="btn btn-danger" href="<?php echo $this->url('jokes/delete', array("id"=> $joke->getId())); ?>" role="button"><?php echo $this->translate('Delete') ?></a>
             </td>
         </tr>
         <?php endforeach; ?>

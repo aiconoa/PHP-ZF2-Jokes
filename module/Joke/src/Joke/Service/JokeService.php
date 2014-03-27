@@ -1,14 +1,15 @@
 <?php
 
 namespace Joke\Service;
-
 use Joke\Entity\Joke;
 
-interface JokeService {
+interface JokeService  {
 
     public function findAllJokes();
 
     public function findJoke($id);
 
-    public function createJoke(Joke $joke);
+    public function createOrUpdateJoke(Joke $joke);
+
+    public function deleteJoke($id);
 }

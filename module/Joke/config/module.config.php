@@ -4,12 +4,33 @@ return array(
     'router' => array(
         'routes' => array(
             'jokes' => array(
-                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/jokes[/]',
+                    'route'    => '/jokes',
                     'defaults' => array(
                         'controller' => 'Joke\Controller\Joke',
                         'action'     => 'list',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'edit' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/edit/:id',
+                            'defaults' => array(
+                                'action' => 'edit',
+                            )
+                        ),
+                    ),
+                    'delete' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/delete/:id',
+                            'defaults' => array(
+                                'action' => 'delete',
+                            )
+                        ),
                     ),
                 ),
             ),
@@ -44,7 +65,16 @@ return array(
     ),
     'service_manager' => array(
         'invokables' => array(
-            'Joke\Service\JokeService' => 'Joke\Service\MockJokeService'
+            //'Joke\Service\JokeService' => 'Joke\Service\MockJokeService'
+            'Joke\Service\JokeService' => 'Joke\Service\DbJokeService'
+        ),
+        'factories' => array(
+            'JokeTableGateway' => function ($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $resultSetPrototype = new \Zend\Db\ResultSet\HydratingResultSet(new \Zend\Stdlib\Hydrator\ClassMethods(), new \Joke\Entity\Joke());
+//                    $resultSetPrototype->setArrayObjectPrototype(new Joke());
+                    return new \Zend\Db\TableGateway\TableGateway('joke', $dbAdapter, null, $resultSetPrototype);
+                },
         ),
         'aliases' => array(
             'JokeService' => 'Joke\Service\JokeService',
