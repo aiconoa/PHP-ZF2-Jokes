@@ -4,11 +4,37 @@ namespace Joke\Service;
 
 
 use Joke\Entity\Joke;
+use Zend\Log\Logger;
+use Zend\Log\Writer\Stream;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class MockJokeService implements JokeService
+class MockJokeService implements JokeService, ServiceLocatorAwareInterface
 {
 
     private $jokes = array();
+
+    private $serviceLocator;
+    /**
+     * Set service locator
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+       $this->serviceLocator = $serviceLocator;
+    }
+
+    /**
+     * Get service locator
+     *
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->serviceLocator;
+    }
+
 
     function __construct()
     {
@@ -58,4 +84,5 @@ Elle est émerveillée par une robe et le fait comprendre à son mari ! Son mari
 
         return null;
     }
+
 }

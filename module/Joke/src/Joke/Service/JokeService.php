@@ -2,7 +2,6 @@
 
 namespace Joke\Service;
 
-
 interface JokeService {
 
     public function findAllJokes();

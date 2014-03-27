@@ -77,4 +77,14 @@ class Joke {
         return $this->postedOn;
     }
 
+    function __toString()
+    {
+        return "Joke { \n"
+        . "id: " . $this->id . "\n"
+        . "title: " . $this->title . "\n"
+        . "text: " . $this->text . "\n"
+        . "}\n";
+    }
+
+
 } 
