@@ -26,6 +26,20 @@ return array(
                     ),
                 ),
             ),
+
+            'addJoke' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/jokes/add',
+                    'constraints' => array(
+                        'id' => '[0-9]+'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Joke\Controller\Joke',
+                        'action'     => 'add',
+                    ),
+                ),
+            ),
         ),
     ),
     'service_manager' => array(
@@ -47,3 +61,5 @@ return array(
         ),
     ),
 );
+
+?>

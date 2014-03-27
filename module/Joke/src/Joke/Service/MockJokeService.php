@@ -2,16 +2,13 @@
 
 namespace Joke\Service;
 
-
 use Joke\Entity\Joke;
 use Zend\Log\Logger;
-use Zend\Log\Writer\Stream;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 class MockJokeService implements JokeService, ServiceLocatorAwareInterface
 {
-
     private $jokes = array();
 
     private $serviceLocator;
@@ -83,6 +80,12 @@ Elle est émerveillée par une robe et le fait comprendre à son mari ! Son mari
         }
 
         return null;
+    }
+
+    public function createJoke(Joke $joke)
+    {
+        $logger = $this->getServiceLocator()->get('Log\App');
+        $logger->log(Logger::INFO, "Added a new Joke " . $joke);
     }
 
 }
