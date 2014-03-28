@@ -58,7 +58,6 @@ class JokeController extends AbstractActionController
                 $this->getServiceLocator()->get("JokeService")->createOrUpdateJoke($joke);
                 return $this->redirect()->toRoute('jokes');
             }
-
         }
 
         $vm = new ViewModel();
