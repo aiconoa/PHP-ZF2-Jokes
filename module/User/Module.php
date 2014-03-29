@@ -1,6 +1,6 @@
 <?php
 
-namespace Joke;
+namespace User;
 
 use Zend\Mvc\MvcEvent;
 

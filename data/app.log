@@ -1,0 +1,220 @@
+2014-03-28T14:54:21+01:00 INFO (6): auth service:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\AuthenticationService</i>)[<i>246</i>]
+  <i>protected</i> 'storage' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+  <i>protected</i> 'adapter' <font color='#888a85'>=&gt;</font> 
+    <b>object</b>(<i>Zend\Authentication\Adapter\DbTable\CredentialTreatmentAdapter</i>)[<i>247</i>]
+      <i>protected</i> 'credentialTreatment' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+      <i>protected</i> 'zendDb' <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Db\Adapter\Adapter</i>)[<i>249</i>]
+          <i>protected</i> 'driver' <font color='#888a85'>=&gt;</font> 
+            <b>object</b>(<i>Zend\Db\Adapter\Driver\Pdo\Pdo</i>)[<i>250</i>]
+              ...
+          <i>protected</i> 'platform' <font color='#888a85'>=&gt;</font> 
+            <b>object</b>(<i>Zend\Db\Adapter\Platform\Mysql</i>)[<i>254</i>]
+              ...
+          <i>protected</i> 'profiler' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'queryResultSetPrototype' <font color='#888a85'>=&gt;</font> 
+            <b>object</b>(<i>Zend\Db\ResultSet\ResultSet</i>)[<i>255</i>]
+              ...
+          <i>protected</i> 'lastPreparedStatement' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+      <i>protected</i> 'dbSelect' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+      <i>protected</i> 'tableName' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+      <i>protected</i> 'identityColumn' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'username'</font> <i>(length=8)</i>
+      <i>protected</i> 'credentialColumn' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'password'</font> <i>(length=8)</i>
+      <i>protected</i> 'authenticateResultInfo' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+      <i>protected</i> 'resultRow' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+      <i>protected</i> 'ambiguityIdentity' <font color='#888a85'>=&gt;</font> <small>boolean</small> <font color='#75507b'>false</font>
+      <i>protected</i> 'credential' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+      <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+</pre></pre>
+2014-03-28T14:59:39+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-1</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'toto'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'A record with the supplied identity could not be found.'</font> <i>(length=55)</i>
+</pre></pre>
+2014-03-28T15:01:53+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:01:59+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:02:14+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:02:17+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:02:25+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:02:27+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:02:48+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:02:59+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:03:13+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>-3</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Supplied credential is invalid.'</font> <i>(length=31)</i>
+</pre></pre>
+2014-03-28T15:03:21+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Authentication successful.'</font> <i>(length=26)</i>
+</pre></pre>
+2014-03-28T15:03:33+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Authentication successful.'</font> <i>(length=26)</i>
+</pre></pre>
+2014-03-28T15:08:50+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Authentication\Result</i>)[<i>273</i>]
+  <i>protected</i> 'code' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>1</font>
+  <i>protected</i> 'identity' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'user'</font> <i>(length=4)</i>
+  <i>protected</i> 'messages' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      0 <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Authentication successful.'</font> <i>(length=26)</i>
+</pre></pre>
+2014-03-29T16:33:36+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Permissions\Rbac\Rbac</i>)[<i>247</i>]
+  <i>protected</i> 'createMissingRoles' <font color='#888a85'>=&gt;</font> <small>boolean</small> <font color='#75507b'>false</font>
+  <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+  <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=2)</i>
+      0 <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Permissions\Rbac\Role</i>)[<i>248</i>]
+          <i>protected</i> 'parent' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'admin'</font> <i>(length=5)</i>
+          <i>protected</i> 'permissions' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=1)</i>
+              ...
+          <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+          <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=0)</i>
+              ...
+      1 <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Permissions\Rbac\Role</i>)[<i>249</i>]
+          <i>protected</i> 'parent' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'author'</font> <i>(length=6)</i>
+          <i>protected</i> 'permissions' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=3)</i>
+              ...
+          <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+          <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=0)</i>
+              ...
+</pre></pre>
+2014-03-29T16:35:38+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Permissions\Rbac\Rbac</i>)[<i>247</i>]
+  <i>protected</i> 'createMissingRoles' <font color='#888a85'>=&gt;</font> <small>boolean</small> <font color='#75507b'>false</font>
+  <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+  <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=2)</i>
+      0 <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Permissions\Rbac\Role</i>)[<i>248</i>]
+          <i>protected</i> 'parent' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'admin'</font> <i>(length=5)</i>
+          <i>protected</i> 'permissions' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=1)</i>
+              ...
+          <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+          <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=0)</i>
+              ...
+      1 <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Permissions\Rbac\Role</i>)[<i>249</i>]
+          <i>protected</i> 'parent' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'author'</font> <i>(length=6)</i>
+          <i>protected</i> 'permissions' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=3)</i>
+              ...
+          <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+          <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=0)</i>
+              ...
+</pre></pre>
+2014-03-29T16:35:47+01:00 INFO (6): auth result:  <pre><pre class='xdebug-var-dump' dir='ltr'>
+<b>object</b>(<i>Zend\Permissions\Rbac\Rbac</i>)[<i>248</i>]
+  <i>protected</i> 'createMissingRoles' <font color='#888a85'>=&gt;</font> <small>boolean</small> <font color='#75507b'>false</font>
+  <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+  <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=2)</i>
+      0 <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Permissions\Rbac\Role</i>)[<i>249</i>]
+          <i>protected</i> 'parent' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'admin'</font> <i>(length=5)</i>
+          <i>protected</i> 'permissions' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=1)</i>
+              ...
+          <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+          <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=0)</i>
+              ...
+      1 <font color='#888a85'>=&gt;</font> 
+        <b>object</b>(<i>Zend\Permissions\Rbac\Role</i>)[<i>250</i>]
+          <i>protected</i> 'parent' <font color='#888a85'>=&gt;</font> <font color='#3465a4'>null</font>
+          <i>protected</i> 'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'author'</font> <i>(length=6)</i>
+          <i>protected</i> 'permissions' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=3)</i>
+              ...
+          <i>protected</i> 'index' <font color='#888a85'>=&gt;</font> <small>int</small> <font color='#4e9a06'>0</font>
+          <i>protected</i> 'children' <font color='#888a85'>=&gt;</font> 
+            <b>array</b> <i>(size=0)</i>
+              ...
+</pre></pre>

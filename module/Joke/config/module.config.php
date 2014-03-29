@@ -48,7 +48,7 @@ return array(
                 ),
             ),
 
-            'addJoke' => array(
+            'jokes:add' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route'    => '/jokes/add',

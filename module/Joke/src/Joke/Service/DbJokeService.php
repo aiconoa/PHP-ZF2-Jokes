@@ -40,9 +40,9 @@ class DbJokeService implements JokeService , ServiceLocatorAwareInterface {
     public function findJoke($id)
     {
         $jokeTableGateway = $this->serviceLocator->get('JokeTableGateway');
-        $rowset = $jokeTableGateway->select(array('id' => (int) $id));
-        $row = $rowset->current();
-        return $row;
+        $resultSet = $jokeTableGateway->select(array('id' => (int) $id));
+        $joke = $resultSet->current();
+        return $joke;
     }
 
     public function createOrUpdateJoke(Joke $joke)

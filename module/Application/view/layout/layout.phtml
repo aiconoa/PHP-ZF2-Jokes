@@ -49,6 +49,13 @@
             </div>
         </nav>
         <div class="container">
+            <?php
+                if ($user = $this->identity()) {
+                    echo 'Logged in as ' . $this->escapeHtml($user);
+                } else {
+                    echo 'Not logged in';
+                }
+            ?>
             <?php echo $this->content; ?>
             <hr>
             <footer>

@@ -62,7 +62,7 @@ class JokeController extends AbstractActionController
 
         $vm = new ViewModel();
         $vm->setVariable("viewTitle", "Add new joke");
-        $vm->setVariable("createOrEditFormUrl", "addJoke");
+        $vm->setVariable("createOrEditFormUrl", "jokes:add");
         $vm->setVariable("form", $form);
         $vm->setVariable("isPostBack", $isPostBack);
         $vm->setTemplate("joke/joke/createOrEdit.phtml");

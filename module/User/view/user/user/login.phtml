@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+<?php
+
+$form = $this->form;
+
+$form->prepare();
+// Set the method attribute for the form
+$form->setAttribute('method', 'post');
+// Assuming the "addJoke" route exists...
+$form->setAttribute('action', $this->url("userLogin"));
+echo $this->form()->render($this->form);
+
+echo $this->result;
+
+?>

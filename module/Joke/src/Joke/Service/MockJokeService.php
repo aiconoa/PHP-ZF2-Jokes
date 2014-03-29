@@ -32,7 +32,6 @@ class MockJokeService implements JokeService, ServiceLocatorAwareInterface
         return $this->serviceLocator;
     }
 
-
     function __construct()
     {
         $joke = new Joke();
@@ -93,6 +92,5 @@ Elle est émerveillée par une robe et le fait comprendre à son mari ! Son mari
         $logger = $this->getServiceLocator()->get('Log\App');
         $logger->log(Logger::INFO, "Deleted a Joke " . $id);
     }
-
 
 }
