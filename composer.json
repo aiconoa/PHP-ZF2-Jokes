@@ -1,12 +1,12 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
-    "license": "BSD-3-Clause",
+    "description": "Aiconoa - ZF2 sample app",
+    "license": "MIT",
     "keywords": [
+        "aiconoa",
         "framework",
         "zf2"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "https://github.com/aiconoa/PHP-ZF2-Jokes",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*"

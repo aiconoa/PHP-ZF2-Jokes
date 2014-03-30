@@ -5,5 +5,18 @@
                     <?php echo sprintf($this->translate('Caution: hilarious %sjokes%s inside :-)'), '<a href="/jokes">', '</a>'); ?>
             </p>
         </div>
+        <div class="col-xs-12 col-md-4" id="jokes">
+
+        </div>
+        <script>
+            $.get( "rest/jokes", { order: "posted_on DESC", offset: 0, limit: 3}, function( data ) {
+                console.log(data);
+                var html = "<h3>Last 3 jokes (jQuery calling our restful api via ajax)</h3>";
+                for(var i = 0; i < data.length; i++) {
+                    html += '<li>' + data[i].title + '</li>';
+                }
+                $( "#jokes" ).html( html );
+            });
+        </script>
     </div>
 </div>
