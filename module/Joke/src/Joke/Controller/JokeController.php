@@ -55,6 +55,12 @@ class JokeController extends AbstractActionController
 //                $rawValues    = $filter->getRawValues();
 //                $nameRawValue = $filter->getRawValue('name');
                 //echo $joke;
+
+                //TODO here we can add additional verifications, a valid user must be logged in order to add a joke
+                $userService = $this->serviceLocator->get('UserService');
+                $user = $userService->getCurrentUser();
+                $joke->setAuthorId($user->getId());
+
                 $this->getServiceLocator()->get("JokeService")->createOrUpdateJoke($joke);
                 return $this->redirect()->toRoute('jokes');
             }

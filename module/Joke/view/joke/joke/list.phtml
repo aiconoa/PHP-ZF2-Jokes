@@ -1,6 +1,6 @@
 <h1>Jokes</h1>
 <!-- Indicates a successful or positive action -->
-<a class="btn btn-success" href="<?php echo $this->url('jokes:add'); ?>" role="button"><?php echo $this->translate('Add a new Joke') ?></a>
+<?php echo $this->jokeactions(null, array('add' => $this->translate('Add a new Joke'))); ?>
 <table class="table">
     <thead>
         <tr>

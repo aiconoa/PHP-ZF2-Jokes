@@ -65,7 +65,7 @@ Elle est émerveillée par une robe et le fait comprendre à son mari ! Son mari
     }
 
 
-    public function findAllJokes()
+    public function findAllJokes($offset = null, $limit = null, $order = null)
     {
         return $this->jokes;
     }

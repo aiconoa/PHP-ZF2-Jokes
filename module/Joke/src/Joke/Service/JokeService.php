@@ -5,7 +5,7 @@ use Joke\Entity\Joke;
 
 interface JokeService  {
 
-    public function findAllJokes();
+    public function findAllJokes($offset, $limit, $order);
 
     public function findJoke($id);
 

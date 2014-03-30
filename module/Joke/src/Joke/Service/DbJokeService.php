@@ -2,8 +2,9 @@
 
 namespace Joke\Service;
 
-
 use Joke\Entity\Joke;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Sql\Select;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -30,10 +31,34 @@ class DbJokeService implements JokeService , ServiceLocatorAwareInterface {
         return $this->serviceLocator;
     }
 
-    public function findAllJokes()
+    /**
+     * @param null $offset
+     * @param null $limit
+     * @param null $order
+     * @return ResultSet of $jokes
+     */
+    public function findAllJokes($offset = null, $limit = null, $order = null)
     {
         $jokeTableGateway = $this->serviceLocator->get('JokeTableGateway');
-        $resultSet = $jokeTableGateway->select();
+
+        // here we are using a closure but
+        // $jokeTableGateway->selectWith can also be used, passing a Zend\Db\Sql\Select object
+        // for more information about Zend\Db\Sql\Select http://framework.zend.com/manual/2.3/en/modules/zend.db.sql.html
+        $resultSet = $jokeTableGateway->select(
+            function (Select $select) use ($offset, $limit, $order) {
+                if ($offset != null) {
+                    $select->offset($offset);
+                }
+                if ($limit != null) {
+                    $select->limit($limit);
+                }
+
+                if ($order != null) {
+                    $select->order($order);
+                }
+            }
+        );
+
         return $resultSet;
     }
 
@@ -50,7 +75,8 @@ class DbJokeService implements JokeService , ServiceLocatorAwareInterface {
     {
 
         $jokeTableGateway = $this->serviceLocator->get('JokeTableGateway');
-        if ($joke->getId() == 0) {
+        if ($joke->getId() == null) {
+            $joke->setPostedOn(date('Y-m-d H:i:s'));
             $jokeTableGateway->insert($joke->getArrayCopy());
         } else {
             if ($this->findJoke($joke->getId())) {

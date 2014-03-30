@@ -24,6 +24,16 @@ class JokeActionsHelper extends AbstractHelper
         $jokeAccessService = $this->serviceLocator->getServiceLocator()->get('JokeAccessService');
 
         $html = "";
+
+        if (isset($actions['add'])) {
+            if($jokeAccessService->canDoJokeAction('add', $user, $joke)) {
+                $urlViewHelper = $this->getView()->plugin('url');
+                $html .= '<a class="btn btn-success" href="'.$urlViewHelper('jokes:add').'" role="button">'
+                    . $actions['add']
+                    .'</a>';
+            }
+        }
+
         if(isset($actions['edit'])) {
             if($jokeAccessService->canDoJokeAction('edit', $user, $joke)) {
                 $urlViewHelper = $this->getView()->plugin('url');
@@ -46,11 +56,6 @@ class JokeActionsHelper extends AbstractHelper
 
         return $html;
     }
-
-    protected function editAction() {
-        return "edit";
-    }
-
 
     /**
      * Set service locator

@@ -7,7 +7,7 @@ use User\Entity\User;
 
 class Joke {
 
-    private $id;
+    private $id = null;
     private $title = "";
     private $text = "";
     private $postedOn = null;
