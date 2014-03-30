@@ -90,6 +90,12 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+
+    'view_helpers' => array(
+        'invokables' => array(
+            'jokeactions' => 'Joke\Helper\JokeActionsHelper',
+        ),
+    ),
 );
 
 ?>

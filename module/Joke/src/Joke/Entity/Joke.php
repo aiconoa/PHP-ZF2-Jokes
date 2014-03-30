@@ -3,15 +3,17 @@
 namespace Joke\Entity;
 
 
+use User\Entity\User;
+
 class Joke {
 
     private $id;
     private $title = "";
     private $text = "";
     private $postedOn = null;
+    private $authorId;
 
     //we will soon add $category and $author
-
 
     /**
      * @param int $id
@@ -77,12 +79,30 @@ class Joke {
         return $this->postedOn;
     }
 
+
+    /**
+     * @param int $authorId
+     */
+    public function setAuthorId($authorId)
+    {
+        $this->authorId = $authorId;
+    }
+
+    /**
+     * @return int author id
+     */
+    public function getAuthorId()
+    {
+        return $this->authorId;
+    }
+
     public function __toString()
     {
         return "Joke { \n"
         . "id: " . $this->id . "\n"
         . "title: " . $this->title . "\n"
         . "text: " . $this->text . "\n"
+        . "author_id: " . $this->authorId . "\n"
         . "}\n";
     }
 
@@ -91,10 +111,11 @@ class Joke {
      */
     public function getArrayCopy() {
         return  array(
-            'id' => $this->getId(),
-            'title' => $this->getTitle(),
-            'text' => $this->getText(),
-            'posted_on' => $this->getPostedOn()
+            'id' => $this->id,
+            'title' => $this->title,
+            'text' => $this->text,
+            'posted_on' => $this->postedOn,
+            'author_id' => $this->authorId,
         );
     }
 

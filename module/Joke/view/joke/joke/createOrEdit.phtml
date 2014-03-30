@@ -52,13 +52,13 @@ echo $this->formElementErrors($text);
 echo '</div></div>';
 ?>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <?php
-                $submit = $form->get('submit');
-                $submit->setValue('Save');
-                echo $this->formElement($submit);
-            ?>
-        </div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php
+            $submit = $form->get('submit');
+            $submit->setValue('Save');
+            echo $this->formElement($submit);
+        ?>
     </div>
+</div>
 <?php echo $this->form()->closeTag($form); ?>

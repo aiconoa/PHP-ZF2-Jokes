@@ -45,17 +45,17 @@
                         <li class="active"><a href="<?php echo $this->url('credits') ?>"><?php echo $this->translate('Credits') ?></a></li>
                         <li class="active"><a href="<?php echo $this->url('about') ?>"><?php echo $this->translate('About') ?></a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php if($this->identity()): ?>
+                            <li><a href="<?php echo $this->url('user:logout') ?>">Hello <?php echo $this->identity() ?> - logout</a></li>
+                        <?php else: ?>
+                            <li><a href="<?php echo $this->url('user:login') ?>"> login</a></li>
+                        <?php endif; ?>
+                    </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
         <div class="container">
-            <?php
-                if ($user = $this->identity()) {
-                    echo 'Logged in as ' . $this->escapeHtml($user);
-                } else {
-                    echo 'Not logged in';
-                }
-            ?>
             <?php echo $this->content; ?>
             <hr>
             <footer>

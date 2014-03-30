@@ -8,6 +8,7 @@ class User {
     private $id;
     private $username = "";
     private $password = "";
+    private $role = null;
 
     /**
      * @param int $id
@@ -57,5 +58,20 @@ class User {
         return $this->username;
     }
 
+    /**
+     * @param null $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * @return null
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
 
 } 

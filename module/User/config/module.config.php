@@ -3,13 +3,23 @@
 return array(
     'router' => array(
         'routes' => array(
-            'userLogin' => array(
+            'user:login' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/user/login',
                     'defaults' => array(
                         'controller' => 'User\Controller\UserController',
                         'action'     => 'login',
+                    ),
+                ),
+            ),
+            'user:logout' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/user/logout',
+                    'defaults' => array(
+                        'controller' => 'User\Controller\UserController',
+                        'action'     => 'logout',
                     ),
                 ),
             ),
@@ -41,6 +51,7 @@ return array(
                 },
 
             'UserTableGateway' => 'User\Factories\UserTableGatewayFactory',
+            'RoleTableGateway' => 'User\Factories\RoleTableGatewayFactory',
         ),
         'aliases' => array(
             //for the view helper identity http://framework.zend.com/manual/2.2/en/modules/zend.view.helpers.identity.html

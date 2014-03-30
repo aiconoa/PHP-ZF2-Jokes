@@ -5,6 +5,7 @@ namespace User\Service;
 use Joke\Entity\Joke;
 use Zend\Permissions\Rbac\AssertionInterface;
 use Zend\Permissions\Rbac\Rbac;
+use Zend\Permissions\Rbac\Role;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -43,35 +44,29 @@ class JokeAccessService implements ServiceLocatorAwareInterface
     }
 
     /**
+     * @param string $action
      * @param User $user
      * @param Joke $joke
      * @return bool
      */
-    public function canEditJoke($user, $joke) {
-        if($user == null) {
+    public function canDoJokeAction($action, $user, $joke) {
+        if($user == null || $user->getRole() == null) {
             return false;
         }
 
-        return $this->rbac->isGranted($user->getRole, 'joke:all')
-           ||  $this->rbac->isGranted($user->getRole, 'joke:edit[ifAuthor]', new UserIsJokeAuthorAssertion($user, $joke));
-    }
-
-    public function canDeleteJoke($user, $joke) {
-        if($user == null) {
-            return false;
+        if($action == 'add') { // every user can add a joke
+            return true;
         }
 
-        return $this->rbac->isGranted($user->getRole, 'joke:all')
-        ||  $this->rbac->isGranted($user->getRole, 'joke:delete[ifAuthor]', new UserIsJokeAuthorAssertion($user, $joke));
-    }
+        $role = $this->rbac->getRole($user->getRole()->getName());
 
-    /**
-     * @param User $user
-     * @param Joke $joke
-     * @return bool
-     */
-    public function canAddJoke($user, $joke) {
-        return $user != null;
+        $assertionIfAuthor = function($rbac) use ($user, $joke) {
+            return $user->getId() == $joke->getAuthorId();
+        };
+
+
+        return      $this->rbac->isGranted($role, 'joke:all')
+                ||  $this->rbac->isGranted($role, 'joke:'.$action.'[ifAuthor]', $assertionIfAuthor );
     }
 
     /**
@@ -93,28 +88,4 @@ class JokeAccessService implements ServiceLocatorAwareInterface
         return $rbac;
     }
 
-}
-
-
-class UserIsJokeAuthorAssertion implements AssertionInterface {
-
-    private $joke;
-    private $user;
-
-    function __construct($user, $joke)
-    {
-        $this->user = $user;
-        $this->joke = $joke;
-    }
-
-    /**
-     * Assertion method - must return a boolean.
-     *
-     * @param  Rbac $rbac
-     * @return bool
-     */
-    public function assert(Rbac $rbac)
-    {
-        return $this->joke->getAuthor() == $this->user;
-    }
 }

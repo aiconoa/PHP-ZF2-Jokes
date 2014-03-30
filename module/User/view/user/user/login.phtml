@@ -1,5 +1,4 @@
 <h1>Login</h1>
-
 <?php
 
 $form = $this->form;
@@ -8,9 +7,52 @@ $form->prepare();
 // Set the method attribute for the form
 $form->setAttribute('method', 'post');
 // Assuming the "addJoke" route exists...
-$form->setAttribute('action', $this->url("userLogin"));
-echo $this->form()->render($this->form);
+$form->setAttribute('action', $this->url("user:login"));
 
-echo $this->result;
+$form->setAttribute('class', 'form-horizontal');
+
+//opening form tag
+echo $this->form()->openTag($form);
+
+// USERNAME -----------------------
+$username = $form->get('username');
+$username->setAttribute('class','form-control');
+$username->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+
+echo '<div class="form-group">';
+
+echo $this->formLabel($username);
+echo '<div class="col-sm-10">';
+echo $this->formElement($username);
+echo '</div></div>';
+
+// PASSWORD -----------------------
+$password = $form->get('password');
+$password->setAttribute('class','form-control');
+$password->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+
+echo '<div class="form-group">';
+
+echo $this->formLabel($password);
+echo '<div class="col-sm-10">';
+echo $this->formElement($password);
+echo '</div></div>';
 
 ?>
+<div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php
+                $submit = $form->get('submit');
+                $submit->setValue('Login');
+                echo $this->formElement($submit);
+            ?>
+</div>
+</div>
+
+<h3>Hint</h3>
+<p>Try one of the following username / password</p>
+<ul>
+    <li>admin / admin</li>
+    <li>author / author</li>
+    <li>user / user</li>
+</ul>

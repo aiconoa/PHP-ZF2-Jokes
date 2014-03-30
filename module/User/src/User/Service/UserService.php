@@ -2,7 +2,6 @@
 
 namespace User\Service;
 
-
 use User\Entity\User;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -69,12 +68,17 @@ class UserService implements ServiceLocatorAwareInterface {
         return $this->findUserByUsername($username);
     }
 
+    public function logout() {
+        $authService = $this->getServiceLocator()->get('AuthenticationService');
+        $authService->clearIdentity();
+    }
+
     /**
      * @return the currently authenticated user if any. Returns null if no user is currently authenticated
      */
     public function getCurrentUser() {
         $authService = $this->getServiceLocator()->get('AuthenticationService');
-        return findUserByUsername($authService->getIdentity());
+        return $this->findUserByUsername($authService->getIdentity());
     }
 
     /**
@@ -86,7 +90,21 @@ class UserService implements ServiceLocatorAwareInterface {
     {
         $userTableGateway = $this->serviceLocator->get('UserTableGateway');
         $resultSet = $userTableGateway->select(array('username' => $username));
-        return $resultSet->current();
+
+        $user = $resultSet->current();
+
+        if($user == null) {
+            return null;
+        }
+
+        $roleTableGateway = $this->serviceLocator->get('RoleTableGateway');
+        $resultSet = $roleTableGateway->select(array('user_id' => $user->getId()));
+        $role = $resultSet->current();
+        if($role) {
+            $user->setRole($role);
+        }
+
+        return $user;
     }
 
 } 

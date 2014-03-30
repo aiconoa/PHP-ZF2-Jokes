@@ -20,11 +20,18 @@ class UserController extends AbstractActionController {
                     $form->getInputFilter()->getValue('password')
                 );
 
-                //TODO if user == null => pas authenticated
-                // else it's ok !
+                if($user != null) {
+                    //login successful => go back home ;-)
+                    return $this->redirect()->toRoute('home');
+                }
             }
         }
 
-        return array("form" => $form, "result" => isset($user) ? Debug::dump($user, null, false): "user is not set" );
+        return array("form" => $form);
+    }
+
+    public function logoutAction() {
+        $this->getServiceLocator()->get('UserService')->logout();
+        return $this->redirect()->toRoute('home');
     }
 }
